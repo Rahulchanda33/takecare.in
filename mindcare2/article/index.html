@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Therapist Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="endbar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>MentalCare</h1>
+            </div>
+    
+            <!-- Menu Icon for Mobile -->
+            <div class="menu-icon" id="menu-icon">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+            </div>
+    
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+    
+            <!-- Login Button (Visible on all devices) -->
+            <button class="login-btn" onclick="openModal()">Login</button>
+    
+            <!-- Login Modal Popup -->
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Login</h2>
+                    <form id="loginForm">
+                        <label for="countryCode">Country Code:</label>
+                        <select id="countryCode" name="countryCode" required>
+                            <option value="+1">+1 (USA)</option>
+                            <option value="+91">+91 (India)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+61">+61 (Australia)</option>
+                        </select>
+    
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number" required pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number">
+    
+                        <p class="otp-info">After entering your mobile number, a 4-digit OTP will be generated and displayed here.</p>
+    
+                        <button type="button" class="btn" onclick="generateOTP()">Generate OTP</button>
+    
+                        <div id="otpSection" style="display:none;">
+                            <label for="otp">Enter 4-digit OTP:</label>
+                            <input type="text" id="otp" name="otp" placeholder="Enter OTP" pattern="[0-9]{4}" maxlength="4" required>
+                            <button type="button" class="btn" onclick="verifyOTP()">Verify OTP</button>
+                        </div>
+                    </form>
+    
+                    <p id="generatedOtp" style="display:none; color: red;">Generated OTP: <span id="otpValue"></span></p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Take Control of Your Mental Well-Being</h1>
+        <p>Your journey to better mental health starts here.</p>
+        <button class="cta-btn">Get Started</button>
+    </section>
+
+    <section class="features">
+        <div class="feature-card" onclick="window.location.href='/backend/public/Bita/appoint/index.html';">
+            <h3>Appointment Scheduler</h3>
+            <p>Book therapy sessions at your convenience with an intuitive calendar system.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='/backend/public/Bita/tracker/index.html';">
+            <h3>Daily Mental Health Tracker</h3>
+            <p>Log your emotions, track your progress, and see visualized improvements over time.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='Therapist_chat/index.html';">
+            <h3>Interactive Quiz</h3>
+            <p>Identify your mental health needs with a personalized quiz.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='Therapist_chat/index.html';">
+            <h3>Community Forum</h3>
+            <p>Join a safe and supportive space to share your experiences and tips.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='Therapist_chat/index.html';">
+            <h3>AI-Powered Chatbot</h3>
+            <p>Get 24/7 mental health assistance from our smart chatbot.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='Therapist_chat/index.html';">
+            <h3>Educational Resources</h3>
+            <p>Explore articles, videos, and infographics to learn and grow.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='Therapist_chat/index.html';">
+            <h3>Gamification</h3>
+            <p>Achieve milestones and earn rewards for self-care efforts.</p>
+        </div>
+        <div class="feature-card" onclick="window.location.href='Therapist_chat/index.html';">
+            <h3>Subscription Plans</h3>
+            <p>Access premium features for an enhanced experience.</p>
+        </div>
+    </section>
+  <!-- Footer Section for End bar -->
+  <footer class="footer-section">
+    <div class="container">
+      
+      <!-- Footer Columns -->
+      <div class="footer-columns">
+        
+        <!-- Column 1: About Us -->
+        <div class="footer-column">
+          <h4>About Us</h4>
+          <p>We are licensed mental health professionals providing compassionate care and evidence-based therapy for individuals, couples, and families. Our mission is to foster a safe space for personal growth, healing, and emotional wellness.</p>
+        </div>
+  
+        <!-- Column 2: Services -->
+        <div class="footer-column">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Individual Therapy</a></li>
+            <li><a href="#">Couples Counseling</a></li>
+            <li><a href="#">Family Therapy</a></li>
+            <li><a href="#">Group Therapy</a></li>
+            <li><a href="#">Mental Health Assessments</a></li>
+          </ul>
+        </div>
+  
+        <!-- Column 3: Resources -->
+        <div class="footer-column">
+          <h4>Resources & Tools</h4>
+          <ul>
+            <li><a href="#">Mental Health Articles</a></li>
+            <li><a href="#">Self-Help Tools</a></li>
+            <li><a href="#">Mental Health Apps</a></li>
+            <li><a href="#">Meditation Guides</a></li>
+          </ul>
+        </div>
+  
+        <!-- Column 4: Contact & Social Links -->
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <p>Email: <a href="mailto:support@mentalwellness.com">support@mentalwellness.com</a></p>
+          <p>Phone: <a href="tel:+1234567890">+1-234-567-890</a></p>
+          <div class="social-media">
+            <h5>Follow Us:</h5>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/rahulchandajmk"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/Rahulchanda33"><i class='bx bxl-youtube'></i></a>
+                <a href="https://www.instagram.com/_rahulchanda33?igsh=ZWZ6dHJkcnIxdDZk"><i class='bx bxl-instagram'></i>
+                <a href="https://x.com/Rahulchand78279?t=efOhnAtpOA4YfpCeH4TfAQ&s=09"><i class='bx bxl-facebook' ></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <!-- Footer Bottom Section (Copyright) -->
+    <div class="footer-bottom">
+        <div class="container_copy">
+          <p> Copyright &copy; 2024 Mental Wellness Therapy | All Rights Reserved</p>
+          <div class="secure-icons">
+            <span><i class="fas fa-lock"></i> 100% Confidential & Secure</span>
+            <span><i class="fas fa-check-circle"></i> Licensed & Trusted Therapists</span>
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>

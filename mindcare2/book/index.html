@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/animations.css">
+    <script src="/animations.js" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>MentalCare</h1>
+            </div>
+    
+            <!-- Mobile Menu Icon -->
+            <div class="menu-icon" id="menu-icon">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+            </div>
+    
+            <!-- Nav Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+    
+            <!-- Login Button (Visible on all devices) -->
+            <button class="login-btn" onclick="openModal()">Login</button>
+    
+            <!-- Login Modal Popup -->
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Login</h2>
+                    <form id="loginForm">
+                        <label for="countryCode">Country Code:</label>
+                        <select id="countryCode" name="countryCode" required>
+                            <option value="+1">+1 (USA)</option>
+                            <option value="+91">+91 (India)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+61">+61 (Australia)</option>
+                        </select>
+    
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number" required pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number">
+    
+                        <p class="otp-info">After entering your mobile number, a 4-digit OTP will be generated and displayed here.</p>
+    
+                        <button type="button" class="btn" onclick="generateOTP()">Generate OTP</button>
+    
+                        <div id="otpSection" style="display:none;">
+                            <label for="otp">Enter 4-digit OTP:</label>
+                            <input type="text" id="otp" name="otp" placeholder="Enter OTP" pattern="[0-9]{4}" maxlength="4" required>
+                            <button type="button" class="btn" onclick="verifyOTP()">Verify OTP</button>
+                        </div>
+                    </form>
+    
+                    <p id="generatedOtp" style="display:none; color: red;">Generated OTP: <span id="otpValue"></span></p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Your Mental Health Journey Starts Here</h2>
+        <p class="hero-subtitle">Access expert-curated resources, professional guidance, and supportive community to enhance your mental well-being.</p>
+        <div class="search-container">
+            <input type="text" placeholder="Search for topics, resources, or support..." id="searchBar">
+            <button onclick="searchResources()">
+                <i class='bx bx-search'></i>
+                Explore
+            </button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">Resources</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Expert Contributors</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Support Available</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2 class="fade-up">Explore Resources</h2>
+        <p class="fade-up">Browse through our carefully curated resources to enhance your knowledge and skills.</p>
+        <div class="category-list stagger">
+            <div class="category animate-item">
+                <div class="category-icon">💻</div>
+                <h3>Tech Resources</h3>
+                <p>Stay up to date with the latest technologies...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+            
+            <div class="category animate-item">
+                <div class="category-icon">🧠</div>
+                <h3>Mental Health</h3>
+                <p>Expert guidance for mental wellness...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+            
+            <div class="category animate-item">
+                <div class="category-icon">📚</div>
+                <h3>Educational</h3>
+                <p>Learning resources and materials...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+            
+            <div class="category animate-item">
+                <div class="category-icon">🏥</div>
+                <h3>Healthcare</h3>
+                <p>Medical and health resources...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">🎯</div>
+                <h3>Self-Development</h3>
+                <p>Personal growth and emotional intelligence resources...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">🧘‍♀️</div>
+                <h3>Mindfulness</h3>
+                <p>Meditation and mindfulness practices for daily life...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">💪</div>
+                <h3>Physical Wellness</h3>
+                <p>Exercise, nutrition, and lifestyle resources...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">👥</div>
+                <h3>Support Groups</h3>
+                <p>Connect with others and share experiences...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">📚</div>
+                <h3>Research & Studies</h3>
+                <p>Latest mental health research and findings...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">🌈</div>
+                <h3>Diversity & Inclusion</h3>
+                <p>Resources for diverse communities and needs...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">💼</div>
+                <h3>Workplace Wellness</h3>
+                <p>Mental health resources for professional life...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">👶</div>
+                <h3>Youth & Family</h3>
+                <p>Resources for children, teens, and parents...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">🌙</div>
+                <h3>Sleep Health</h3>
+                <p>Sleep improvement and relaxation techniques...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">🎨</div>
+                <h3>Art Therapy</h3>
+                <p>Creative expression for mental wellness...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">🌿</div>
+                <h3>Holistic Health</h3>
+                <p>Natural and alternative wellness approaches...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+
+            <div class="category animate-item">
+                <div class="category-icon">📱</div>
+                <h3>Digital Wellness</h3>
+                <p>Managing mental health in the digital age...</p>
+                <a href="#" class="category-btn">Explore</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Resources Section -->
+    <section class="featured">
+        <h3 class="fade-up">Featured Resources</h3>
+        <div class="resource-grid stagger">
+            <!-- Mental Health Basics -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">📘</div>
+                <h4>Understanding Mental Health Basics</h4>
+                <p>A comprehensive guide to mental health fundamentals, common conditions, and early warning signs.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. Sarah Johnson, MD</span>
+                    <span class="read-time">15 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Beginner</span>
+                    <span class="tag">Essential</span>
+                </div>
+                <a href="articles/mental-health-basics.html" class="read-more">Read Full Article</a>
+            </div>
+            
+            <!-- Anxiety Management -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">🧠</div>
+                <h4>Anxiety Management Techniques</h4>
+                <p>Evidence-based strategies for managing anxiety, including breathing exercises and cognitive techniques.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. Michael Chen, PhD</span>
+                    <span class="read-time">12 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Anxiety</span>
+                    <span class="tag">Self-Help</span>
+                </div>
+                <a href="articles/anxiety-management.html" class="read-more">Read Full Article</a>
+            </div>
+            
+            <!-- Depression Support -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">🌅</div>
+                <h4>Depression: Understanding & Support</h4>
+                <p>Learn about depression symptoms, treatment options, and ways to support yourself or loved ones.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. Emma Williams, PsyD</span>
+                    <span class="read-time">18 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Depression</span>
+                    <span class="tag">Support</span>
+                </div>
+                <a href="articles/depression-support.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- Mindfulness Practices -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">🌿</div>
+                <h4>Mindfulness & Meditation Guide</h4>
+                <p>Step-by-step guide to mindfulness practices, meditation techniques, and daily mental wellness routines.</p>
+                <div class="resource-meta">
+                    <span class="author">By Lisa Chen, Mindfulness Coach</span>
+                    <span class="read-time">10 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Mindfulness</span>
+                    <span class="tag">Meditation</span>
+                </div>
+                <a href="articles/mindfulness-guide.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- Stress Management -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">⚡</div>
+                <h4>Workplace Stress Management</h4>
+                <p>Professional strategies for managing workplace stress, burnout prevention, and work-life balance.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. James Miller, Occupational Psychologist</span>
+                    <span class="read-time">14 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Work Stress</span>
+                    <span class="tag">Professional</span>
+                </div>
+                <a href="articles/workplace-stress.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- Relationship Health -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">💝</div>
+                <h4>Mental Health in Relationships</h4>
+                <p>Understanding the connection between mental health and relationships, communication strategies, and support systems.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. Rachel Thompson, Relationship Counselor</span>
+                    <span class="read-time">16 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Relationships</span>
+                    <span class="tag">Communication</span>
+                </div>
+                <a href="articles/relationship-health.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- Sleep and Mental Health -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">🌙</div>
+                <h4>Sleep and Mental Wellness</h4>
+                <p>Explore the crucial connection between sleep quality and mental health, with practical tips for better sleep hygiene.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. Alex Martinez, Sleep Specialist</span>
+                    <span class="read-time">13 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Sleep</span>
+                    <span class="tag">Wellness</span>
+                </div>
+                <a href="articles/sleep-mental-health.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- Youth Mental Health -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">👥</div>
+                <h4>Teen Mental Health Guide</h4>
+                <p>Essential information for teenagers, parents, and educators about managing mental health during adolescence.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. Jessica Lee, Child Psychologist</span>
+                    <span class="read-time">20 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Youth</span>
+                    <span class="tag">Education</span>
+                </div>
+                <a href="articles/teen-mental-health.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- Digital Wellness -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">📱</div>
+                <h4>Digital Well-being & Mental Health</h4>
+                <p>Managing screen time, social media impact, and maintaining mental wellness in the digital age.</p>
+                <div class="resource-meta">
+                    <span class="author">By Tech-Mind Research Team</span>
+                    <span class="read-time">15 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Digital</span>
+                    <span class="tag">Modern Life</span>
+                </div>
+                <a href="articles/digital-wellness.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- Exercise and Mental Health -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">🏃‍♂️</div>
+                <h4>Exercise for Mental Strength</h4>
+                <p>Understanding how physical activity impacts mental health and practical exercise routines for emotional well-being.</p>
+                <div class="resource-meta">
+                    <span class="author">By Sarah Wilson, Sports Psychologist</span>
+                    <span class="read-time">17 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Exercise</span>
+                    <span class="tag">Physical Health</span>
+                </div>
+                <a href="articles/exercise-mental-health.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- Nutrition and Mental Health -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">🥗</div>
+                <h4>Nutrition's Impact on Mental Health</h4>
+                <p>The science behind how diet affects mood, cognitive function, and overall mental well-being.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. Maria Garcia, Nutritional Psychiatrist</span>
+                    <span class="read-time">19 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">Nutrition</span>
+                    <span class="tag">Lifestyle</span>
+                </div>
+                <a href="articles/nutrition-mental-health.html" class="read-more">Read Full Article</a>
+            </div>
+
+            <!-- LGBTQ+ Mental Health -->
+            <div class="resource-card animate-item">
+                <div class="resource-icon">🌈</div>
+                <h4>LGBTQ+ Mental Health Support</h4>
+                <p>Specialized mental health resources and support strategies for the LGBTQ+ community.</p>
+                <div class="resource-meta">
+                    <span class="author">By Dr. Sam Taylor, LGBTQ+ Mental Health Specialist</span>
+                    <span class="read-time">16 min read</span>
+                </div>
+                <div class="resource-tags">
+                    <span class="tag">LGBTQ+</span>
+                    <span class="tag">Support</span>
+                </div>
+                <a href="articles/lgbtq-mental-health.html" class="read-more">Read Full Article</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About MentalCare</h4>
+                <p>Dedicated to providing mental health resources and support for everyone.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 MentalCare | All Rights Reserved</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animation setup for sections
+        const sections = document.querySelectorAll('.categories, .featured');
+        
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                    }, 100);
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Observe all sections and their children
+        sections.forEach(section => {
+            observer.observe(section);
+            section.querySelectorAll('.animate-item, .fade-up').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    });
+
+    function searchResources() {
+        const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+        const resourceCards = document.querySelectorAll('.resource-card');
+        
+        resourceCards.forEach(card => {
+            const title = card.querySelector('h4').textContent.toLowerCase();
+            const description = card.querySelector('p').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    </script>
+</body>
+</html>

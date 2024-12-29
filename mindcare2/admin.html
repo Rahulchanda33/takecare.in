@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="endbar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="animations.js" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>MentalCare</h1>
+        </div>
+
+        <div class="menu-icon" id="menu-icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Login Button (Visible on all devices) -->
+        <button class="login-btn" onclick="openModal()">Login</button>
+
+        <!-- Login Modal Popup -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <label for="countryCode">Country Code:</label>
+                    <select id="countryCode" name="countryCode" required>
+                        <option value="+1">+1 (USA)</option>
+                        <option value="+91">+91 (India)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+61">+61 (Australia)</option>
+                    </select>
+
+                    <label for="mobileNumber">Mobile Number:</label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number" required pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number">
+
+                    <p class="otp-info">After entering your mobile number, a 4-digit OTP will be generated and displayed here.</p>
+
+                    <button type="button" class="btn" onclick="generateOTP()">Generate OTP</button>
+
+                    <div id="otpSection" style="display:none;">
+                        <label for="otp">Enter 4-digit OTP:</label>
+                        <input type="text" id="otp" name="otp" placeholder="Enter OTP" pattern="[0-9]{4}" maxlength="4" required>
+                        <button type="button" class="btn" onclick="verifyOTP()">Verify OTP</button>
+                    </div>
+                </form>
+
+                <p id="generatedOtp" style="display:none; color: red;">Generated OTP: <span id="otpValue"></span></p>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Our Mental Health Services</h1>
+                <p class="hero-subtitle">Your journey to wellness begins here.</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <video autoplay muted loop playsinline style="width: 100%; height: auto;">
+                    <source src="rc.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Options Section Below Hero -->
+<section class="therapist-options-section">
+    <div class="options-grid animate-on-scroll">
+        <!-- Chat with Therapist -->
+        <div class="option" onclick="window.location.href='Therapist_chat/index.html';">
+            <img src="https://img.icons8.com/ios-filled/50/000000/chat.png" alt="Chat with Therapist" class="option-icon">
+            <h3>Chat with Therapist</h3>
+            <p>Start a private chat session with a licensed therapist anytime.</p>
+        </div>
+
+        <!-- Talk with Therapist -->
+        <div class="option" onclick="window.location.href='Call_therapist/talk.html';">
+            <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Talk with Therapist" class="option-icon">
+            <h3>Talk with Therapist</h3>
+            <p>Have a voice conversation and get guidance from a professional.</p>
+        </div>
+
+        <!-- Video Call with Therapist -->
+        <div class="option">
+            <img src="https://img.icons8.com/ios-filled/50/000000/video-call.png" alt="Video Call with Therapist" class="option-icon">
+            <h3>Video Call with Therapist</h3>
+            <p>Schedule a video session for a more personal and face-to-face experience.</p>
+        </div>
+
+        <!-- Quotes from Therapist -->
+        <div class="option">
+            <img src="https://img.icons8.com/ios-filled/50/000000/quote-left.png" alt="Quotes from Therapist" class="option-icon">
+            <h3>Quotes from Therapist</h3>
+            <p>Receive daily inspiration and quotes directly from our therapists.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <h2>Mental Health Resources</h2>
+        <div class="resource-cards">
+            <div class="card" onclick="window.location.href='book/index.html';">
+                <img src="https://via.placeholder.com/150" alt="Article">
+                <h3>Articles</h3>
+                <p>Explore in-depth articles on mental health topics.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/150" alt="Videos">
+                <h3>Videos</h3>
+                <p>Watch videos from experts in the mental health field.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/150" alt="Therapist">
+                <h3>Connect with Therapists</h3>
+                <p>Find professional therapists near you for guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for User Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="mental-health" class="mental-health-section">
+        <!-- Main Heading (H1) -->
+        <h1 class="main-title">Why Choose Our Mental Health Services?</h1>
+        
+        <!-- Sub Heading (H2) -->
+        <h2 class="sub-title">Prioritize Your Mental Well-Being</h2>
+    
+        <!-- FAQ/Content Container -->
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Accessible and Convenient Support</button>
+                <div class="faq-content">
+                    <p>We recognize that busy schedules often make it difficult to seek in-person therapy. Our online mental health services are designed for your convenience, allowing you to connect with licensed professionals from the comfort of your home. Easily schedule appointments that fit your lifestyle, ensuring that support is always within reach—whether you’re at home, at work, or on the go.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Confidential and Personalized Consultations</button>
+                <div class="faq-content">
+                    <p>Your privacy is our priority. Our platform offers secure, confidential consultations via video calls or chat, enabling you to express your concerns freely and without judgment. Our experienced therapists are dedicated to providing personalized support tailored to your specific situation, ensuring you receive effective care.</p>
+                </div>
+            </div>
+
+    <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Affordable Mental Health Solutions</button>
+                <div class="faq-content">
+                    <p>We believe that quality mental health care should be accessible to everyone. Our services are designed to be affordable without compromising quality. With transparent pricing and various plans available, you can receive the mental health support you need without the financial burden often associated with traditional therapy.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Expert Guidance You Can Trust</button>
+                <div class="faq-content">
+                    <p>Our team of licensed mental health professionals brings extensive experience and expertise to your care. Each therapist is carefully selected based on their proficiency in various therapeutic approaches, ensuring you receive the best possible guidance. Whether you are dealing with anxiety, depression, stress, or relationship challenges, our qualified therapists are here to help you develop effective coping strategies.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">A Holistic Approach to Wellness</button>
+                <div class="faq-content">
+                    <p>Understanding that mental health is interconnected with various aspects of life, our services take a holistic approach. We offer not just therapy, but also resources on mindfulness, self-care techniques, and coping strategies. By addressing the root causes of your concerns, we empower you to take control of your mental health and overall well-being.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Community Support and Resources</button>
+                <div class="faq-content">
+                    <p>Choosing our mental health services means joining a supportive community that values connection and understanding. We host workshops, webinars, and support groups where you can learn from experts and share experiences with others facing similar challenges. Our goal is to create an environment where you can grow and heal together with others.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Stay Informed and Empowered</button>
+                <div class="faq-content">
+                    <p>We believe in the power of education in mental health. Through our blog and social media channels, we share valuable insights, tips, and resources to help you stay informed about mental health topics. Our content is designed to empower you to make informed decisions about your mental well-being.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Get Started with Us Today</button>
+                <div class="faq-content">
+                    <p>Taking the first step toward better mental health can feel overwhelming, but we make it easy. Visit our website or download our app to book your first consultation. We offer a complimentary initial session, allowing you to experience our services without any commitment. Once you see the value we provide, you can recharge your account and continue your journey with our experienced therapists.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Why Our Mental Health Experts Stand Out</button>
+                <div class="faq-content">
+                    <p>At our core, we are dedicated to being your partner in mental health. Our experts are here to answer your questions, provide support, and guide you through your challenges. We maintain high standards by encouraging client feedback and continuously improving based on your needs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Why Is Mental Health Awareness Important?</button>
+                <div class="faq-content">
+                    <p>Mental health awareness helps people recognize the signs of mental illnesses and promotes better understanding and compassion. With more awareness, individuals are encouraged to seek help early, which improves treatment outcomes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Why Should You Choose Our Services For Mental Health Support?</button>
+                <div class="faq-content">
+                    <p>We have a dedicated team of licensed professionals who are passionate about providing quality care. Our platform is rated highly across various platforms, and we offer services tailored to your needs, ranging from counseling, mental health assessments, wellness plans, and more.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Can Mental Health Problems Be Cured?</button>
+                <div class="faq-content">
+                    <p>Many mental health conditions can be effectively managed and treated with the right support, therapy, and, when necessary, medication. Early intervention and ongoing support are crucial in ensuring positive outcomes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">How Can Online Mental Health Support Help Me?</button>
+                <div class="faq-content">
+                    <p>Online mental health support gives you the opportunity to connect with professionals from the comfort of your home. You can receive therapy sessions, participate in wellness programs, or simply chat with a counselor without geographical limitations.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">What Questions Can I Ask My Counselor?</button>
+                <div class="faq-content">
+                    <p>You can ask anything related to your emotional well-being, mental health, and life challenges. Whether you're facing anxiety, relationship issues, career stress, or simply want to understand more about your mental health, our professionals are here to help.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">What Is The Duration Of Online Counseling Sessions?</button>
+                <div class="faq-content">
+                    <p>Each session typically lasts between 45 minutes to 1 hour, but you can work with your counselor to adjust the timing based on your needs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Can Mental Health Predictions Or Diagnoses Change?</button>
+                <div class="faq-content">
+                    <p>Yes, mental health diagnoses can change as your situation, environment, or personal growth evolves. Regular check-ins with a counselor ensure that you receive the most accurate support and guidance tailored to your current situation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFAQ(this)">Does Online Mental Health Support Work For All Conditions?</button>
+                <div class="faq-content">
+                    <p>Online support is effective for many mental health challenges, including stress, anxiety, depression, and relationship issues. However, for certain conditions, in-person care or a combination of both online and offline support might be more suitable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <details>
+                <summary>Why Is Mental Health Awareness Important?</summary>
+                <p>
+                    Mental health awareness helps people recognize the signs of mental illnesses and promotes better understanding and compassion. With more awareness, individuals are encouraged to seek help early, which improves treatment outcomes.
+                </p>
+            </details>
+            <details>
+                <summary>Why Should You Choose Our Services For Mental Health Support?</summary>
+                <p>
+                    We have a dedicated team of licensed professionals who are passionate about providing quality care. Our platform is rated highly across various platforms, and we offer services tailored to your needs, ranging from counseling, mental health assessments, wellness plans, and more.
+                </p>
+            </details>
+            <details>
+                <summary>Can Mental Health Problems Be Cured?</summary>
+                <p>
+                    Many mental health conditions can be effectively managed and treated with the right support, therapy, and, when necessary, medication. Early intervention and ongoing support are crucial in ensuring positive outcomes.
+                </p>
+            </details>
+            <details>
+                <summary>How Can Online Mental Health Support Help Me?</summary>
+                <p>
+                    Online mental health support gives you the opportunity to connect with professionals from the comfort of your home. You can receive therapy sessions, participate in wellness programs, or simply chat with a counselor without geographical limitations.
+                </p>
+            </details>
+            <details>
+                <summary>What Questions Can I Ask My Counselor?</summary>
+                <p>
+                    You can ask anything related to your emotional well-being, mental health, and life challenges. Whether you're facing anxiety, relationship issues, career stress, or simply want to understand more about your mental health, our professionals are here to help.
+                </p>
+            </details>
+            <details>
+                <summary>What Is The Duration Of Online Counseling Sessions?</summary>
+                <p>
+                    Each session typically lasts between 45 minutes to 1 hour, but you can work with your counselor to adjust the timing based on your needs.
+                </p>
+            </details>
+            <details>
+                <summary>Can Mental Health Predictions Or Diagnoses Change?</summary>
+                <p>
+                    Yes, mental health diagnoses can change as your situation, environment, or personal growth evolves. Regular check-ins with a counselor ensure that you receive the most accurate support and guidance tailored to your current situation.
+                </p>
+            </details>
+            <details>
+                <summary>Does Online Mental Health Support Work For All Conditions?</summary>
+                <p>
+                    Online support is effective for many mental health challenges, including stress, anxiety, depression, and relationship issues. However, for certain conditions, in-person care or a combination of both online and offline support might be more suitable.
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Footer Section for End bar -->
+<footer class="footer-section">
+    <div class="container">
+      
+      <!-- Footer Columns -->
+      <div class="footer-columns">
+        
+        <!-- Column 1: About Us -->
+        <div class="footer-column">
+          <h4>About Us</h4>
+          <p>We are licensed mental health professionals providing compassionate care and evidence-based therapy for individuals, couples, and families. Our mission is to foster a safe space for personal growth, healing, and emotional wellness.</p>
+        </div>
+  
+        <!-- Column 2: Services -->
+        <div class="footer-column">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Individual Therapy</a></li>
+            <li><a href="#">Couples Counseling</a></li>
+            <li><a href="#">Family Therapy</a></li>
+            <li><a href="#">Group Therapy</a></li>
+            <li><a href="#">Mental Health Assessments</a></li>
+          </ul>
+        </div>
+  
+        <!-- Column 3: Resources -->
+        <div class="footer-column">
+          <h4>Resources & Tools</h4>
+          <ul>
+            <li><a href="#">Mental Health Articles</a></li>
+            <li><a href="#">Self-Help Tools</a></li>
+            <li><a href="#">Mental Health Apps</a></li>
+            <li><a href="#">Meditation Guides</a></li>
+          </ul>
+        </div>
+  
+        <!-- Column 4: Contact & Social Links -->
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <p>Email: <a href="mailto:support@mentalwellness.com">support@mentalwellness.com</a></p>
+          <p>Phone: <a href="tel:+1234567890">+1-234-567-890</a></p>
+          <div class="social-media">
+            <h5>Follow Us:</h5>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/rahulchandajmk"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/Rahulchanda33"><i class='bx bxl-youtube'></i></a>
+                <a href="https://www.instagram.com/_rahulchanda33?igsh=ZWZ6dHJkcnIxdDZk"><i class='bx bxl-instagram'></i>
+                <a href="https://x.com/Rahulchand78279?t=efOhnAtpOA4YfpCeH4TfAQ&s=09"><i class='bx bxl-facebook' ></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <!-- Footer Bottom Section (Copyright) -->
+    <div class="footer-bottom">
+        <div class="container_copy">
+          <p> Copyright &copy; 2024 Mental Wellness Therapy | All Rights Reserved</p>
+          <div class="secure-icons">
+            <span><i class="fas fa-lock"></i> 100% Confidential & Secure</span>
+            <span><i class="fas fa-check-circle"></i> Licensed & Trusted Therapists</span>
+          </div>
+        </div>
+      </div>
+  
+    
+    <script src="admin.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

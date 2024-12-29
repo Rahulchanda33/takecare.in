@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h2>AI Chatbot</h2>
+        </div>
+        <div class="chatbot-box" id="chatbox">
+            <!-- Chat messages will be dynamically inserted here -->
+        </div>
+        <div class="chatbot-input-container">
+            <input type="text" id="userInput" placeholder="Ask me anything..." onkeyup="sendMessage(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

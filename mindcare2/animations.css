@@ -1,0 +1,705 @@
+/* New Animations File */
+/* Base Animation Properties */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    visibility: hidden;
+}
+
+.animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Options Grid Animations */
+.options-grid {
+    opacity: 0;
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 30px;
+}
+
+.options-grid.animate {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Individual Option Animations */
+.option {
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: center;
+    will-change: transform, opacity;
+}
+
+/* Card 1: Slide from left */
+.option:nth-child(1) {
+    transform: translateX(-100px);
+    animation: slideFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+/* Card 2: Fade up */
+.option:nth-child(2) {
+    transform: translateY(50px);
+    animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+/* Card 3: Fade up */
+.option:nth-child(3) {
+    transform: translateY(50px);
+    animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.6s;
+}
+
+/* Card 4: Slide from right */
+.option:nth-child(4) {
+    transform: translateX(100px);
+    animation: slideFromRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.8s;
+}
+
+/* Animation Keyframes */
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+/* Hover Effects */
+.option {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Animation */
+.option-icon {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option:hover .option-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Parallax Effect */
+.therapist-options-section {
+    background-attachment: fixed;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Progress Indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(to right, #FFA726, #FF9800);
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .options-grid {
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .option {
+        animation-duration: 0.6s;
+    }
+
+    .option:hover {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* Resource Cards Animation */
+.resource-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.resource-cards.animate {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Individual Card Animations */
+.resource-cards .card {
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: center;
+    will-change: transform, opacity;
+}
+
+/* Card 1: Slide from left */
+.resource-cards .card:nth-child(1) {
+    transform: translateX(-100px);
+    animation: slideFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+/* Card 2: Fade up */
+.resource-cards .card:nth-child(2) {
+    transform: translateY(50px);
+    animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+/* Card 3: Slide from right */
+.resource-cards .card:nth-child(3) {
+    transform: translateX(100px);
+    animation: slideFromRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.6s;
+}
+
+/* Animation Keyframes (same as options) */
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+/* Hover Effects (matching options) */
+.resource-cards .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-cards .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image Animation */
+.resource-cards .card img {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-cards .card:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .resource-cards {
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .resource-cards .card {
+        animation-duration: 0.6s;
+    }
+
+    .resource-cards .card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Hero Section Animations */
+.hero-section {
+    overflow: hidden;  /* Prevent content from showing outside during animation */
+    position: relative;
+}
+
+/* Hero Content Animation */
+.hero-content {
+    opacity: 0;
+    transform: translateX(100px);
+    animation: slideInFromRight 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    will-change: transform, opacity;
+}
+
+/* Hero Title Animation */
+.hero-title {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInFromRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.3s;
+}
+
+/* Hero Subtitle Animation */
+.hero-subtitle {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: slideInFromRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.5s;
+}
+
+/* Hero Button Animation */
+.hero-content .btn {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.7s;
+}
+
+/* Hero Video Container Animation */
+.hero-image {
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideInFromLeft 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+    will-change: transform, opacity;
+}
+
+/* Video Element Animation */
+.hero-image video {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: videoFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+/* Animation Keyframes */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes videoFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .hero-content,
+    .hero-image {
+        animation-duration: 1s;
+    }
+
+    .hero-title,
+    .hero-subtitle {
+        animation-duration: 0.8s;
+    }
+
+    .hero-image video {
+        animation-duration: 1.2s;
+    }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero-content,
+    .hero-image,
+    .hero-title,
+    .hero-subtitle,
+    .hero-content .btn,
+    .hero-image video {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Text Animation Base Classes */
+.animate-text {
+    opacity: 0;
+    visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* Main Title Animation */
+.main-title {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: dropIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes dropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    70% {
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sub-Title Animation */
+.sub-title {
+    opacity: 0;
+    transform: translateX(-50px) rotate(-2deg);
+    animation: slideInRotate 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes slideInRotate {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px) rotate(-2deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+    }
+}
+
+/* FAQ Headers Animation */
+.faq-header {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.faq-header.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered FAQ Animation Delays */
+.faq-item:nth-child(1) .faq-header { transition-delay: 0.1s; }
+.faq-item:nth-child(2) .faq-header { transition-delay: 0.2s; }
+.faq-item:nth-child(3) .faq-header { transition-delay: 0.3s; }
+.faq-item:nth-child(4) .faq-header { transition-delay: 0.4s; }
+.faq-item:nth-child(5) .faq-header { transition-delay: 0.5s; }
+
+/* Paragraph Text Animation */
+.animate-paragraph {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-paragraph.animate {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Section Title Animations */
+.section-title {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes fadeUpIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll-Triggered Animation Classes */
+.scroll-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-fade-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text Reveal Animation */
+.text-reveal {
+    overflow: hidden;
+    position: relative;
+}
+
+.text-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.text-reveal.animate::after {
+    transform: scaleX(0);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .main-title,
+    .sub-title,
+    .faq-header,
+    .animate-paragraph {
+        animation-duration: 0.6s;
+        transition-duration: 0.6s;
+    }
+
+    .faq-item:nth-child(n) .faq-header {
+        transition-delay: 0.1s;
+    }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .main-title,
+    .sub-title,
+    .faq-header,
+    .animate-paragraph,
+    .section-title,
+    .scroll-fade-up {
+        animation: none;
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .text-reveal::after {
+        display: none;
+    }
+}
+
+/* FAQ Header Button Style */
+.faq-header {
+    background: linear-gradient(
+        to right,
+        rgba(26, 188, 156, 0.05) 0%,
+        rgba(26, 188, 156, 0.1) 100%
+    );
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    font-size: 18px;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.faq-header:hover {
+    color: #16a085;
+    background: linear-gradient(
+        to right,
+        rgba(26, 188, 156, 0.1) 0%,
+        rgba(26, 188, 156, 0.2) 100%
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-header:focus {
+    outline: none;
+}
+
+/* Remove default button styles */
+button.faq-header {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* FAQ Content Styling */
+.faq-content {
+    padding: 0 20px 20px;
+    color: #34495e;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .faq-header {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .faq-content {
+        padding: 0 15px 15px;
+        font-size: 14px;
+    }
+}
+
+/* FAQ Item Container */
+.faq-item {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* FAQ Content Animation */
+.faq-content {
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* Animation when content is visible */
+.faq-content.animate {
+    opacity: 1;
+    transform: scale(1);
+    max-height: 1000px; /* Adjust based on content */
+    padding: 20px;
+}
+
+/* FAQ Content Paragraph */
+.faq-content p {
+    color: #34495e;
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 0;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+/* Paragraph animation when content is visible */
+.faq-content.animate p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .faq-content {
+        padding: 0 15px;
+    }
+
+    .faq-content.animate {
+        padding: 15px;
+    }
+
+    .faq-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}

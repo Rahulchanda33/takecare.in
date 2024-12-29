@@ -1,0 +1,1001 @@
+/* 1. Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Navigation & Header */
+header {
+    background-color: #1abc9c;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 60px; /* Fixed height */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo h1 {
+    color: #fff;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: #16a085;
+    border-radius: 5px;
+}
+
+.login-btn {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #3498db;
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Navigation Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: none; /* Hide the nav links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1abc9c;
+        padding: 20px 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .nav-links li:last-child {
+        margin-bottom: 0;
+    }
+
+    .menu-icon {
+        display: block; /* Show the menu icon on mobile */
+    }
+
+    .login-btn {
+        order: 2; /* Move login button to the bottom on small screens */
+    }
+}
+
+/* Show menu when clicked */
+.nav-links.show {
+    display: flex;
+}
+
+/* 3. OTP Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: red;
+    font-size: 1.5em;
+    float: right;
+    cursor: pointer;
+}
+
+/* 4. Hero Section */
+.hero-section {
+    background: radial-gradient(
+        circle at center,
+        #B2FEFA 0%,
+        #0ED2F7 50%,
+        #0083B0 100%
+    );
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    margin-top: 60px; /* Match header height exactly */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    max-width: 600px; /* Reduced from 800px for more compact look */
+    margin: 0 auto;
+    z-index: 1;
+    padding: 0; /* Remove any extra padding */
+}
+
+.hero-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    color: #f8f9fa;
+}
+
+/* Hero Section Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        margin-top: 60px; /* Keep consistent with header height */
+        padding: 40px 15px;
+    }
+
+    .hero-content {
+        max-width: 90%;
+    }
+
+    .hero-title {
+        font-size: 1.6em; /* Reduced from 1.8em */
+        margin-bottom: 10px; /* Reduced from 15px */
+    }
+
+    .hero-subtitle {
+        font-size: 0.9em; /* Reduced from 1em */
+        margin-bottom: 15px; /* Reduced from 20px */
+        padding: 0 5px; /* Reduced padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        margin-top: 60px; /* Keep consistent with header height */
+        padding: 30px 10px;
+    }
+
+    .hero-content {
+        max-width: 85%;
+    }
+
+    .hero-title {
+        font-size: 1.3em; /* Reduced from 1.5em */
+        margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8em; /* Reduced from 0.9em */
+        margin-bottom: 12px;
+    }
+}
+
+/* 5. Therapist Options Section */
+.therapist-options-section {
+    padding: 80px 0;
+    background: radial-gradient(
+        circle at center,
+        #F0F8FF 0%,
+        #E6F3FF 25%,
+        #E1F5FE 50%,
+        #B3E5FC 75%,
+        #81D4FA 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add floating background elements */
+.therapist-options-section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.1) 55%, transparent 55%);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.option {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.2) 0%,
+        rgba(255,255,255,0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.option:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.option:hover::before {
+    opacity: 1;
+}
+
+.option-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #81D4FA, #4FC3F7);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.option:hover .option-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.option h3 {
+    color: #1a237e;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.option h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, #81D4FA, #4FC3F7);
+    border-radius: 2px;
+}
+
+.option p {
+    color: #455a64;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.1em;
+    padding: 0 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .therapist-options-section {
+        padding: 60px 0;
+    }
+
+    .options-grid {
+        gap: 25px;
+        padding: 15px;
+    }
+
+    .option {
+        padding: 25px 20px;
+    }
+
+    .option h3 {
+        font-size: 1.4em;
+    }
+
+    .option p {
+        font-size: 1em;
+    }
+
+    .option-icon {
+        width: 60px;
+        height: 60px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .option {
+        padding: 20px 15px;
+    }
+}
+
+/* 6. Resources Section */
+.resources {
+    background: radial-gradient(
+        circle at center,
+        rgb(255, 250, 230) 0%,    /* Very light yellow */
+        rgb(255, 243, 205) 25%,   /* Light yellow */
+        rgb(255, 236, 179) 50%,   /* Yellow-orange */
+        rgb(255, 224, 130) 75%,   /* Deeper yellow */
+        rgb(255, 183, 77) 100%    /* Orange */
+    );
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: #2c3e50;
+}
+
+.resources h2 {
+    font-size: 2.5em;
+    color: #663c00;
+    font-weight: bold;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.resource-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.92);
+    width: 300px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(255, 160, 0, 0.15);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 198, 94, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 160, 0, 0.2);
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(135deg, #FFA726, #FF9800);  /* Orange gradient */
+    box-shadow: 0 5px 15px rgba(255, 160, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.4em;
+    color: #E65100;  /* Deep orange */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card p {
+    font-size: 1.1em;
+    color: #873600;  /* Dark orange-brown */
+    line-height: 1.6;
+}
+
+/* Resources Responsive */
+@media (max-width: 768px) {
+    .resources {
+        padding: 30px 15px;
+    }
+
+    .resources h2 {
+        font-size: 2em;
+    }
+
+    .resource-cards {
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .card {
+        width: calc(50% - 20px);
+        padding: 20px;
+    }
+
+    .card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card h3 {
+        font-size: 1.2em;
+    }
+
+    .card p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* 7. Mental Health Section */
+.mental-health-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Darker color for title */
+}
+
+.section-intro {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555; /* Medium color for intro */
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: #222; /* Slightly darker for subheadings */
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #444; /* Dark gray for readability */
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-intro {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem; /* Smaller title on mobile */
+    }
+
+    .section-description, .faq-question {
+        font-size: 1rem; /* Smaller font size on mobile */
+    }
+
+    .why-choose-list li, .faq-answer {
+        font-size: 0.9rem; /* Smaller font size on mobile */
+    }
+}
+/* Base Styles for Headings */
+.main-title, .sub-title {
+    text-align: center;   /* Center the text horizontally */
+    margin: 0 auto;       /* Center the element itself */
+    padding: 10px;        /* Add some padding */
+    color: #2c3e50;       /* Set text color */
+}
+
+/* Main Heading (H1) Style */
+.main-title {
+    font-size: 2.5em;      /* Font size for larger screens */
+    font-weight: bold;
+    line-height: 1.2;      /* Line height to make it more readable */
+}
+
+/* Sub Heading (H2) Style */
+.sub-title {
+    font-size: 1.8em;      /* Slightly smaller font size */
+    font-weight: normal;
+    color: #16a085;        /* Add a different color to the sub-title */
+}
+
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2em;    /* Reduce size for tablets and smaller devices */
+    }
+
+    .sub-title {
+        font-size: 1.5em;  /* Reduce size for the sub-heading */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8em;  /* Further reduce size for mobile screens */
+    }
+
+    .sub-title {
+        font-size: 1.3em;  /* Further reduce sub-title for mobile */
+    }
+}
+
+
+/* Hero Section Styles */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2; /* Change as needed */
+    padding: 50px 20px; /* Adjust padding as necessary */
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px; /* Adjust max-width as necessary */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Stack on smaller screens */
+    align-items: center;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 20px; /* Space around text */
+}
+
+.hero-title {
+    font-size: 2.5rem; /* Responsive font size */
+    margin-bottom: 15px;
+    color: white; /* Change as needed */
+    font-weight: bold;
+    line-height: 1.2; 
+}
+
+.hero-subtitle {
+    font-size: 1.2rem; /* Responsive font size */
+    margin-bottom: 20px;
+    color: whitesmoke; /* Change as needed */
+    font-weight: 0.8rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 100%; /* Ensure image does not overflow */
+}
+
+.hero-image img {
+    width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Align side by side on larger screens */
+    }
+    
+    .hero-content {
+        flex: 1;
+        padding-right: 40px; /* Space between text and image */
+    }
+    
+    .hero-image {
+        flex: 1;
+    }
+}
+
+/* Import Google Fonts for a clean, professional look */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Use a modern font */
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #333; /* Darker text color for readability */
+}
+
+/* Mental Health Section Styles */
+.mental-health-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    max-width: 1300px;
+    margin: auto;
+}
+
+
+/* Main container */
+.container {
+    max-width: 1300px;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    background: radial-gradient(
+        circle at center,
+        #2c3e50 0%,    /* Dark blue-gray */
+        #2c3e50 30%,   /* Dark blue-gray */
+        #1a1a2e 70%,   /* Darker blue */
+        #16213e 100%   /* Deep dark blue */
+    );
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #ffffff;    /* Light text for dark background */
+}
+
+/* Section Title (H1) */
+.section-title {
+    font-size: 2.8em; /* Large, eye-catching title */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    
+}
+
+/* Section Subtitle (H2) */
+.section-intro {
+    font-size: 1.8em; /* Slightly smaller for subtitle */
+    text-align: center;
+    margin-bottom: 30px; /* Space between title and content */
+    color: #e0e0e0;
+}
+
+/* Text Content Style */
+.content {
+    font-size: 1.1em; /* Slightly larger text for readability */
+    line-height: 1.8; /* Increased line height for easy reading */
+    color: #f0f0f0;
+    margin-bottom: 20px; /* Spacing between paragraphs */
+}
+
+/* Subheadings for sections */
+.subheading {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #4dabf7; /* Accent color for subheadings */
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2em; /* Adjust size for smaller screens */
+    }
+
+    .section-intro {
+        font-size: 1.4em; /* Adjust size for better readability */
+    }
+
+    .content {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+}
+
+/* Hero Video Styles */
+.hero-video {
+    width: 100%;
+    max-width: 800px;
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin: 10px auto;
+}
+
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: block;
+}
+
+/* Responsive Video */
+@media (max-width: 768px) {
+    .hero-video {
+        max-width: 100%;
+        margin: 5px auto;
+    }
+}
+
+/* 8. FAQ Section */
+.faq-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2.9em;      /* Font size for larger screens */
+    font-weight: bold;
+    line-height: 1.2; 
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.faq-container details {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.faq-container summary {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.faq-container summary:hover {
+    color: #0056b3;
+}
+
+.faq-container p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* FAQ Responsive */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 30px 15px;
+    }
+
+    .faq-container {
+        gap: 15px;
+    }
+
+    .faq-section h2 {
+        font-size: 28px;
+    }
+
+    .faq-container summary {
+        font-size: 16px;
+    }
+
+    .faq-container p {
+        font-size: 14px;
+    }
+}
+
+/* 9. Footer Styles */
+footer {
+    padding: 30px;
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+/* Add these animation classes to your existing elements */
+
+/* Container animation */
+.container {
+    max-width: 1300px;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    background: radial-gradient(
+        circle at center,
+        #2c3e50 0%,
+        #2c3e50 30%,
+        #1a1a2e 70%,
+        #16213e 100%
+    );
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+/* Add this class to your container in HTML */
+.container {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Cards or sections */
+.admin-section {
+    /* Add these classes in your HTML: class="admin-section fade-up" */
+    margin-bottom: 30px;
+}
+
+/* Tables */
+.admin-table {
+    /* Add these classes in your HTML: class="admin-table slide-left" */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Form sections */
+.form-section {
+    /* Add these classes in your HTML: class="form-section fade-up" */
+    margin-bottom: 20px;
+}
+
+/* List items with stagger effect */
+.admin-list {
+    /* Add these classes in your HTML: class="admin-list stagger" */
+    list-style: none;
+    padding: 0;
+}
+
+.admin-list > * {
+    margin-bottom: 10px;
+}
+
+/* Update Video Styling in Hero Section */
+.hero-image video {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image video:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive Video */
+@media (max-width: 768px) {
+    .hero-image video {
+        border-radius: 15px;
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+

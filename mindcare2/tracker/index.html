@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Mental Health Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Daily Mental Health Tracker</h1>
+        
+    </header>
+
+    <main>
+        <section id="mood-tracking">
+            <h2>Track Your Mood</h2>
+            <label for="mood">How do you feel today?</label>
+            <select id="mood">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="anxious">Anxious</option>
+                <option value="calm">Calm</option>
+            </select>
+            <textarea id="mood-notes" placeholder="Describe why you feel this way..."></textarea>
+            <button onclick="saveMood()">Save Mood</button>
+        </section>
+
+        <section id="stress-tracking">
+            <h2>Track Your Stress Level</h2>
+            <label for="stress-level">Stress Level (1-10)</label>
+            <input type="number" id="stress-level" min="1" max="10">
+            <textarea id="stress-notes" placeholder="Describe your stressors..."></textarea>
+            <button onclick="saveStress()">Save Stress</button>
+        </section>
+
+        <section id="sleep-tracking">
+            <h2>Track Your Sleep</h2>
+            <label for="sleep-hours">How many hours did you sleep?</label>
+            <input type="number" id="sleep-hours" min="0" max="24">
+            <label for="sleep-quality">Sleep Quality</label>
+            <select id="sleep-quality">
+                <option value="poor">Poor</option>
+                <option value="fair">Fair</option>
+                <option value="good">Good</option>
+                <option value="excellent">Excellent</option>
+            </select>
+            <textarea id="sleep-notes" placeholder="How did you sleep?"></textarea>
+            <button onclick="saveSleep()">Save Sleep</button>
+        </section>
+
+        <section id="activity-tracking">
+            <h2>Track Your Physical Activity</h2>
+            <label for="activity">Activity</label>
+            <input type="text" id="activity" placeholder="Describe your activity (e.g., jogging)">
+            <label for="activity-intensity">Intensity (1-10)</label>
+            <input type="number" id="activity-intensity" min="1" max="10">
+            <label for="activity-mood">How did this affect your mood?</label>
+            <select id="activity-mood">
+                <option value="energized">Energized</option>
+                <option value="neutral">Neutral</option>
+                <option value="tired">Tired</option>
+            </select>
+            <button onclick="saveActivity()">Save Activity</button>
+        </section>
+
+        <section id="insights">
+            <h2>Your Insights</h2>
+            <div id="mood-insight"></div>
+            <div id="stress-insight"></div>
+            <div id="sleep-insight"></div>
+            <div id="activity-insight"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Daily Mental Health Tracker | All Rights Reserved</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Therapists</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    
+</head>
+<body>   
+
+      <!-- Navbar -->
+      <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>MentalCare</h1>
+            </div>
+    
+            <!-- Menu Icon for Mobile -->
+            <div class="menu-icon" id="menu-icon">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+            </div>
+    
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+    
+            <!-- Login Button (Visible on all devices) -->
+            <button class="login-btn" onclick="openModal()">Login</button>
+    
+            <!-- Login Modal Popup -->
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Login</h2>
+                    <form id="loginForm">
+                        <label for="countryCode">Country Code:</label>
+                        <select id="countryCode" name="countryCode" required>
+                            <option value="+1">+1 (USA)</option>
+                            <option value="+91">+91 (India)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+61">+61 (Australia)</option>
+                        </select>
+    
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number" required pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number">
+    
+                        <p class="otp-info">After entering your mobile number, a 4-digit OTP will be generated and displayed here.</p>
+    
+                        <button type="button" class="btn" onclick="generateOTP()">Generate OTP</button>
+    
+                        <div id="otpSection" style="display:none;">
+                            <label for="otp">Enter 4-digit OTP:</label>
+                            <input type="text" id="otp" name="otp" placeholder="Enter OTP" pattern="[0-9]{4}" maxlength="4" required>
+                            <button type="button" class="btn" onclick="verifyOTP()">Verify OTP</button>
+                        </div>
+                    </form>
+    
+                    <p id="generatedOtp" style="display:none; color: red;">Generated OTP: <span id="otpValue"></span></p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <h1>Chat with a Therapist</h1>
+        <!-- Recharge button in your HTML -->
+        <button class="recharge" id="rechargeButton">Recharge</button>
+        <p>Available balance: ₹0</p>
+        <div class="filters">
+            <button>Filter</button>
+            <button>Sort by</button>
+            <input type="text" id="therapistSearch" placeholder="Search therapist by name..." />
+        </div>
+    </section>
+    
+
+    <section class="therapists-container">
+        <!-- Therapist cards will be dynamically added here -->
+    </section>
+    
+
+    <script src="script.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+</body>
+</html>
